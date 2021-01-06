@@ -8,6 +8,8 @@ package org.acme.graph.model;
  *
  */
 public class Edge {
+	
+	
 	/**
 	 * Identifiant de l'arc
 	 */
@@ -22,33 +24,28 @@ public class Edge {
 	 * Sommet final
 	 */
 	private Vertex target;
-
-	public Edge() {
-
+	
+	protected Edge (Vertex source, Vertex target, String id) {
+		assert(source!=null);
+		assert(target!=null);
+		this.id = id;
+		this.source = source;
+		this.target = target;
+		
+		this.source.addInEdges(this);
+		this.target.addOutEdges(this);
 	}
 
 	public String getId() {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
 	public Vertex getSource() {
 		return source;
 	}
 
-	public void setSource(Vertex source) {
-		this.source = source;
-	}
-
 	public Vertex getTarget() {
 		return target;
-	}
-
-	public void setTarget(Vertex target) {
-		this.target = target;
 	}
 
 	/**

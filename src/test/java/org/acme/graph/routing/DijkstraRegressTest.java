@@ -29,7 +29,7 @@ public class DijkstraRegressTest {
 		this.graph = TestGraphFactory.createGraph01();
 		this.finder = new DijkstraPathFinder(graph);
 	}
-
+	
 	@Test
 	public void testABFound() {
 		List<Edge> path = finder.findPath(graph.findVertex("a"), graph.findVertex("b"));
@@ -42,7 +42,7 @@ public class DijkstraRegressTest {
 		List<Edge> path = finder.findPath(graph.findVertex("b"), graph.findVertex("a"));
 		assertNull(path);
 	}
-
+	
 	@Test
 	public void testACFoundWithCorrectOrder() {
 		List<Edge> path = finder.findPath(graph.findVertex("a"), graph.findVertex("c"));
